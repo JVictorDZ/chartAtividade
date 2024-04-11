@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChartJS</title>
+    <style>
+      .TdsCanvas {
+        display: flex;
+        justify-content: space-around;
+      }
+      canvas {
+        width: 45%;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="TdsCanvas">
+      <canvas id="chart"></canvas>
+      <canvas id="chart2"></canvas>
+    </div>
+    <script>
+      var chart = document.getElementById("chart").getContext("2d");
+      var myChart = new Chart(chart, {
+        type: "bar",
+        data: {
+          labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+          datasets: [
+            {
+              label: "Temperatura",
+              data: [22, 24, 27, 23, 20, 18],
+              backgroundColor: "rgb(255,160,122)",
+              borderColor: "rgb(250,128,114)",
+            },
+            {
+              label: "Umidade",
+              data: [90, 89, 93, 87, 88, 82],
+              backgroundColor: "rgb(135,206,250)",
+              borderColor: "rgb(0,191,255)",
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: true,
+          responsive: false,
+        },
+      });
+
+      var chart2 = document.getElementById("chart2").getContext("2d");
+      var myChart2 = new Chart(chart2, {
+        type: "line",
+        data: {
+          labels: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+          datasets: [
+            {
+              label: "Temperatura",
+              data: [30, 29, 28, 25, 22, 23],
+              backgroundColor: "rgb(255,160,122)",
+              borderColor: "rgb(250,128,114)",
+            },
+            {
+              label: "Umidade",
+              data: [80, 82, 80, 85, 80, 83],
+              backgroundColor: "rgb(135,206,250)",
+              borderColor: "rgb(0,191,255)",
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: true,
+          responsive: false,
+        },
+      });
+    </script>
+  </body>
+</html>
